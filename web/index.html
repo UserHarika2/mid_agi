@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>simple space | modern landing</title>
+  <!-- Google Fonts + simple reset for clean, friendly look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: linear-gradient(145deg, #f9fafc 0%, #f1f5f9 100%);
+      color: #0a2540;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
+
+    /* header & nav */
+    header {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e6f5c, #289672);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2c3e50;
+      transition: color 0.2s ease;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #1e6f5c;
+    }
+
+    /* buttons & elements */
+    .btn {
+      display: inline-block;
+      background: #1e6f5c;
+      color: white;
+      font-weight: 600;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #1e6f5c;
+      color: #1e6f5c;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: #1e6f5c;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn:hover {
+      background: #0e5a48;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(30,111,92,0.2);
+    }
+
+    /* hero section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      margin: 3rem 0 4rem 0;
+    }
+
+    .hero-content {
+      flex: 1.2;
+      min-width: 260px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #0a2f2a, #1b6b5e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #2c3e50;
+      margin: 1.2rem 0 2rem;
+      max-width: 500px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero-image {
+      flex: 0.9;
+      background: linear-gradient(125deg, #d9f0ec, #c2e9e2);
+      border-radius: 48px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+    }
+
+    .hero-image svg {
+      max-width: 100%;
+      height: auto;
+      border-radius: 32px;
+    }
+
+    /* section styling */
+    section {
+      margin: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: #1e6f5c;
+      border-radius: 3px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
+      flex: 1 1 260px;
+      transition: all 0.25s ease;
+      box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 32px -16px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: #4a5c6c;
+      font-size: 0.95rem;
+    }
+
+    /* about & stats */
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: white;
+      border-radius: 40px;
+      padding: 2rem 2rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 1.5;
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    .stats {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: center;
+    }
+
+    .stat-item {
+      text-align: center;
+      background: #f8fafc;
+      border-radius: 32px;
+      padding: 1.2rem 1.2rem;
+      min-width: 110px;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #1e6f5c;
+    }
+
+    /* contact / cta */
+    .cta-section {
+      background: linear-gradient(115deg, #0a2f2a, #1b6b5e);
+      border-radius: 48px;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: white;
+      margin: 4rem 0 2rem;
+    }
+
+    .cta-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .cta-section p {
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+
+    .cta-section .btn {
+      background: white;
+      color: #1e6f5c;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    }
+
+    .cta-section .btn:hover {
+      background: #f0fdfa;
+      transform: scale(0.98);
+    }
+
+    footer {
+      border-top: 1px solid rgba(0,0,0,0.05);
+      margin-top: 3rem;
+      padding: 2rem 0 1.5rem;
+      text-align: center;
+      color: #4a6272;
+      font-size: 0.85rem;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .container {
+        padding: 1rem 1.5rem;
+      }
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .about-grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-bar">
+    <div class="logo">✦ simpleSpace</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- Hero section -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Craft your digital<br>presence, simply.</h1>
+        <p>Clean, modern, and lightning-fast. Build connections that matter with a website that feels like home.</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn">Get started →</a>
+          <a href="#features" class="btn btn-outline">Explore</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <svg width="320" height="260" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="50" y="70" width="300" height="170" rx="28" fill="#FFFFFF" stroke="#B7E0D6" stroke-width="2" />
+          <circle cx="110" cy="130" r="28" fill="#D9F0EC" stroke="#289672" stroke-width="1.8" />
+          <circle cx="210" cy="130" r="28" fill="#D9F0EC" stroke="#289672" stroke-width="1.8" />
+          <circle cx="310" cy="130" r="28" fill="#D9F0EC" stroke="#289672" stroke-width="1.8" />
+          <rect x="90" y="190" width="220" height="20" rx="12" fill="#E6F4F0" />
+          <path d="M120 220 L280 220" stroke="#B2DFD4" stroke-width="6" stroke-linecap="round" />
+          <path d="M180 100 L220 100" stroke="#289672" stroke-width="4" stroke-linecap="round" />
+          <path d="M280 100 L300 100" stroke="#289672" stroke-width="4" stroke-linecap="round" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Features section -->
+    <section id="features">
+      <h2 class="section-title">Why choose simple</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">⚡️</div>
+          <h3>Blazing fast</h3>
+          <p>Optimized performance and lightweight code, delivering instant interactions.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎨</div>
+          <h3>Modern design</h3>
+          <p>Beautiful gradients, soft shadows, and a friendly interface out of the box.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔒</div>
+          <h3>Secure & reliable</h3>
+          <p>Built with best practices, keeping your data and experience safe.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌱</div>
+          <h3>Easy to adapt</h3>
+          <p>Simple HTML/CSS structure – customize colors, text, and layout with ease.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About + stats -->
+    <section id="about">
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>We believe in clarity & purpose</h3>
+          <p>simpleSpace was born from the idea that websites should be welcoming, fast, and intuitive. No clutter, no complex frameworks – just pure content and meaningful design.</p>
+          <p>Whether you are a freelancer, small business, or creative, our approach helps you stand out without the headache.</p>
+          <a href="#" class="btn-outline btn" style="margin-top: 0.5rem;">Learn more →</a>
+        </div>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-number">200+</div>
+            <div>Projects</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div>Satisfaction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div>Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simple gallery / extra element (testimonials vibe) -->
+    <div style="margin: 2rem 0 1rem;">
+      <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; background: #ffffffcc; border-radius: 48px; padding: 1.5rem; backdrop-filter: blur(4px);">
+        <div style="flex: 1; min-width: 180px;">
+          <p style="font-style: italic; color: #2c3e50;">“Cleanest template I've ever used — made my portfolio shine in minutes.”</p>
+          <p style="margin-top: 0.8rem; font-weight: 600;">— Clara M.</p>
+        </div>
+        <div style="flex: 1; min-width: 180px;">
+          <p style="font-style: italic; color: #2c3e50;">“Super simple to edit, looks amazing on mobile. Love the fresh design.”</p>
+          <p style="margin-top: 0.8rem; font-weight: 600;">— Daniel K.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact / CTA area -->
+    <div id="contact" class="cta-section">
+      <h2>Let’s build something great</h2>
+      <p>Ready to start your next project or just say hello? Drop us a line, we’d love to hear from you.</p>
+      <a href="#" class="btn">✉️ Get in touch</a>
+      <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+        📍 hello@simplespace.com &nbsp;&nbsp;|&nbsp;&nbsp; 📞 +1 (555) 123-4567
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 simpleSpace — designed with ✦ for clarity and simplicity. All rights reserved.</p>
+    <p style="margin-top: 0.8rem; font-size: 0.75rem;">✨ simple HTML/CSS starter — ready to customize.</p>
+  </div>
+</footer>
+
+<!-- tiny interactive: smooth anchor highlight and console greeting (no heavy js) -->
+<script>
+  (function() {
+    // simple smooth scroll for anchor links
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const hash = this.getAttribute('href');
+        if (hash === "#" || hash === "") return;
+        const target = document.querySelector(hash);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // optional: update URL without jumping
+          history.pushState(null, null, hash);
+        }
+      });
+    });
+
+    // small console love note
+    console.log("🌈 simpleSpace — enjoy this clean HTML/CSS website. customize freely!");
+  })();
+</script>
+</body>
+</html>
